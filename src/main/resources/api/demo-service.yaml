@@ -1,0 +1,85 @@
+swagger: '2.0'
+info:
+    title: demo-service.yaml
+    version: 1.0.0
+paths:
+    /demo/roles:
+        get:
+            tags:
+                - Roles
+            responses:
+                '200':
+                    description: Operacion correcta
+                    schema:
+                        $ref: '#/definitions/Roles'
+        post:
+            tags:
+                - Roles
+            parameters:
+                -
+                    name: body
+                    schema:
+                        $ref: '#/definitions/Rol'
+                    in: body
+                    required: true
+            responses:
+                '200':
+                    description: Operacion correcta
+                    schema:
+                        $ref: '#/definitions/Roles'
+    '/demo/roles/{rolid}':
+        get:
+            tags:
+                - Roles
+            responses:
+                '200':
+                    description: Operacion correcta
+                    schema:
+                        $ref: '#/definitions/Roles'
+        delete:
+            tags:
+                - Roles
+            responses:
+                '200':
+                    description: Operacion correcta
+                    schema:
+                        $ref: '#/definitions/Roles'
+        parameters:
+            -
+                name: rolid
+                in: path
+                required: true
+                type: string
+definitions:
+    Rol:
+        description: ''
+        type: object
+        properties:
+            id:
+                description: ''
+                type: string
+            rol:
+                description: ''
+                type: string
+    Roles:
+        description: ''
+        type: object
+        properties:
+            resultado:
+                $ref: '#/definitions/Resultado'
+                description: ''
+            rol:
+                description: ''
+                type: array
+                items:
+                    $ref: '#/definitions/Rol'
+    Resultado:
+        description: ''
+        type: object
+        properties:
+            mensajeRespuesta:
+                description: ''
+                type: string
+            codigoRespuesta:
+                description: ''
+                type: string
